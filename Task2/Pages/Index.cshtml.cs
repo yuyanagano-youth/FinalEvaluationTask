@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace Task2.Pages
+namespace TaskAuditApp.Pages
 {
     public class IndexModel : PageModel
     {
