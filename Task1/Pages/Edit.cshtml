@@ -1,0 +1,61 @@
+﻿@page
+@model Task1.Pages.EditModel
+@{
+}
+
+<form method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <table class="table table-bordered mx-auto">
+        <thead>
+            <tr>
+                <th>タスク名</th>
+                <th>担当者</th>
+                <th>期限</th>
+                <th>状態</th>
+                <th>作成日</th>
+                <th>更新日</th>
+                <th></th>
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+
+            <tr>
+                <td>
+                <input type="text" class="form-control" name="task.TASK_NAME" value="@Model.Result.TASK_NAME" required>
+                </td>
+                <td>
+                <input type="text" class="form-control" name="task.ASSIGNEE" value="@Model.Result.ASSIGNEE" required>
+                </td>
+                <td>
+                <input type="date" class="form-control" name="task.DUE_DATE" value="@Model.Result.DUE_DATE?.ToString("yyyy-MM-dd")" required>
+                </td>
+                <td>
+                    <select name="task.STATUS" class="form-select">
+                        <option value="進行中">進行中</option>
+                        <option value="完了">完了</option>
+                        <option value="未着手">未着手</option>
+                    </select>
+                </td>
+                <td>@Model.Result.CREATE_DATETIME</td>
+                <td>@Model.Result.UPDATE_DATETIME</td>
+                <td>
+                    <input type="hidden" name="task.TASK_ID" value="@Model.Result.TASK_ID" />
+                    <button class="btn btn-secondary text-nowrap" type="submit"> 
+                        確定
+                    </button>
+                </td>
+            </tr>
+          
+        </tbody>
+
+    </table>
+</form>
+
+<button class="btn" type="submit">
+<a asp-page="./Index" class="btn btn-secondary">
+    戻る
+</a>
+</button>
